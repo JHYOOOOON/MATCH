@@ -112,7 +112,7 @@ const Card = () => {
   let cardArray = assignCard(LEVEL[lv]);
 
   return (
-    <section>
+    <section className="section">
       <div className="card-section">
         <section className="card-container">
           {cardArray.map((card, i) => printCard(card, i))}
