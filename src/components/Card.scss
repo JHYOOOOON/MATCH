@@ -1,21 +1,28 @@
+.notransition {
+  transition: none !important;
+}
+
 .section {
   flex: 1;
   .card-section {
+    display: flex;
+    justify-content: center;
     height: 100%;
+    background-color: sandybrown;
     .card-container {
-      padding: 15px;
+      padding: 20px;
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
       align-content: center;
       justify-content: center;
-      gap: 15px;
-      width: 100%;
+      gap: 20px;
+      width: 400px;
       height: 100%;
-      background-color: sandybrown;
       .card {
-        width: 90px;
-        height: 120px;
+        flex-grow: 1;
+        width: 20%;
+        height: 95px;
         perspective: 200px;
         .card-inner {
           position: relative;

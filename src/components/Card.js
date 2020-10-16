@@ -7,7 +7,7 @@ const LEVEL = {
   2: 8,
   3: 12,
   4: 16,
-  5: 30,
+  5: 20,
 };
 
 const CARD_IMAGE = {
@@ -33,8 +33,16 @@ const Card = () => {
         clickedCard.pop().targetNode.classList.remove("flipped");
       }
     } else if (arrayName === "flip") {
+      let tmp;
       while (flippedCard.length) {
-        flippedCard.pop().targetNode.classList.remove("flipped");
+        tmp = flippedCard.pop().targetNode;
+        tmp.classList.add("notransition");
+        tmp.classList.remove("flipped");
+        (function (a) {
+          setTimeout(function () {
+            a.classList.remove("notransition");
+          }, 500);
+        })(tmp);
       }
     }
   };
