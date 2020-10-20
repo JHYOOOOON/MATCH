@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import "./Finish";
 import "./Card.scss";
+import Finish from "./Finish";
 
 // 레벨 당 카드 개수
 const LEVEL = {
@@ -24,6 +26,7 @@ const CARD_KINDS = 6;
 let clickedCard = [];
 let flippedCard = [];
 
+const time = new Date().getTime();
 const Card = () => {
   const [lv, setLv] = useState(1);
 
@@ -109,23 +112,24 @@ const Card = () => {
           <div className="card-front">
             <img src={cardSrc} alt={cardKind} />
           </div>
-          <div className="card-back" onClick={handleClickCard}>
-            뒤
-          </div>
+          <div className="card-back" onClick={handleClickCard}></div>
         </div>
       </div>
     );
   };
 
   let cardArray = assignCard(LEVEL[lv]);
-
   return (
     <section className="section">
-      <div className="card-section">
-        <section className="card-container">
-          {cardArray.map((card, i) => printCard(card, i))}
-        </section>
-      </div>
+      {lv !== 6 ? (
+        <div className="card-section">
+          <section className="card-container">
+            {cardArray.map((card, i) => printCard(card, i))}
+          </section>
+        </div>
+      ) : (
+        <Finish time={(new Date().getTime() - time) * 0.001} />
+      )}
     </section>
   );
 };

@@ -1,0 +1,49 @@
+@import "./variables.scss";
+
+.finish-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .congrats {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .time {
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  .save-container {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      flex: 1;
+      margin-right: 5px;
+      font-size: 17px;
+    }
+    button {
+      background-color: $mint;
+    }
+  }
+  > button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 8px;
+  }
+  .retryBtn {
+    background-color: $mint;
+  }
+}
+
+button {
+  cursor: pointer;
+  font-size: 15px;
+  font-family: $font;
+  border-radius: 3px;
+  padding: 5px 7px;
+}

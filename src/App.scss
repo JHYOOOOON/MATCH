@@ -1,4 +1,7 @@
+@import "components/variables.scss";
 .App {
+  font-family: $font;
+
   min-height: 680px;
   display: flex;
   flex-direction: column;

@@ -6,3 +6,16 @@ body,
   margin: 0;
   padding: 0;
 }
+
+p {
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
