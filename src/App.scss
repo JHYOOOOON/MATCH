@@ -1,8 +1,15 @@
 @import "components/variables.scss";
 .App {
   font-family: $font;
-
   min-height: 680px;
   display: flex;
   flex-direction: column;
+  .section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex: 1;
+    width: 400px;
+    margin: 0 auto;
+  }
 }

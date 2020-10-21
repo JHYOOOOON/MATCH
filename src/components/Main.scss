@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+.main {
+  margin: 0 auto;
+  width: 80%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .title {
+    font-size: $title_font_size;
+    font-weight: 700;
+  }
+  .description {
+    margin: 10px 0;
+    text-align: center;
+  }
+  button {
+    margin-top: 15px;
+    width: 80%;
+  }
+  .play {
+    background-color: $mint;
+  }
+}

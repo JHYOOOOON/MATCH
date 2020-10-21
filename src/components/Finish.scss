@@ -6,7 +6,7 @@
   align-items: center;
   flex-direction: column;
   .congrats {
-    font-size: 40px;
+    font-size: $title_font_size;
     font-weight: 700;
   }
   .time {

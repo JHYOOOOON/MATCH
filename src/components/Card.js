@@ -120,7 +120,7 @@ const Card = () => {
 
   let cardArray = assignCard(LEVEL[lv]);
   return (
-    <section className="section">
+    <>
       {lv !== 6 ? (
         <div className="card-section">
           <section className="card-container">
@@ -130,7 +130,7 @@ const Card = () => {
       ) : (
         <Finish time={(new Date().getTime() - time) * 0.001} />
       )}
-    </section>
+    </>
   );
 };
 

@@ -4,12 +4,15 @@ import Footer from "./components/Footer";
 import Card from "./components/Card";
 import "./reset.css";
 import "./App.scss";
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Card />
+      <section className="section">
+        <Main />
+      </section>
       <Footer />
     </div>
   );
