@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { withRouter } from "react-router-dom";
 import "./Finish";
 import "./Card.scss";
-import Finish from "./Finish";
 
 // 레벨 당 카드 개수
 const LEVEL = {
@@ -27,8 +27,18 @@ let clickedCard = [];
 let flippedCard = [];
 
 const time = new Date().getTime();
-const Card = () => {
-  const [lv, setLv] = useState(1);
+const Card = ({ history }) => {
+  const [lv, setLv] = useState(5);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    return () => {
+      clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const removeClassName = (arrayName) => {
     if (arrayName === "click") {
@@ -42,7 +52,7 @@ const Card = () => {
         tmp.classList.add("notransition");
         tmp.classList.remove("flipped");
         (function (a) {
-          setTimeout(function () {
+          timerRef.current = setTimeout(function () {
             a.classList.remove("notransition");
           }, 500);
         })(tmp);
@@ -62,13 +72,19 @@ const Card = () => {
           flippedCard.push(tmp);
         }
         if (flippedCard.length === LEVEL[lv]) {
-          window.setTimeout(() => {
+          timerRef.current = setTimeout(() => {
             removeClassName("flip");
+            if (lv + 1 === 6) {
+              const now_time = Math.floor(
+                (new Date().getTime() - time) * 0.001
+              );
+              history.push(`/finish/${now_time}`);
+            }
             setLv(lv + 1);
           }, 500);
         }
       } else {
-        window.setTimeout(() => {
+        timerRef.current = setTimeout(() => {
           removeClassName("click");
         }, 500);
       }
@@ -119,19 +135,14 @@ const Card = () => {
   };
 
   let cardArray = assignCard(LEVEL[lv]);
+
   return (
-    <>
-      {lv !== 6 ? (
-        <div className="card-section">
-          <section className="card-container">
-            {cardArray.map((card, i) => printCard(card, i))}
-          </section>
-        </div>
-      ) : (
-        <Finish time={(new Date().getTime() - time) * 0.001} />
-      )}
-    </>
+    <div className="card-section">
+      <section className="card-container">
+        {cardArray.map((card, i) => printCard(card, i))}
+      </section>
+    </div>
   );
 };
 
-export default Card;
+export default withRouter(Card);

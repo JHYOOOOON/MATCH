@@ -1,5 +1,6 @@
 import React from "react";
 import "./Main.scss";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -9,7 +10,9 @@ const Main = () => {
         Welcome! <br />
         Enjoy card matching game!
       </p>
-      <button className="play">Play</button>
+      <button className="play">
+        <Link to="/game">Play</Link>
+      </button>
       <button>Rank</button>
     </div>
   );

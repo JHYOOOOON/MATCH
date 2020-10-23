@@ -1,5 +1,6 @@
 import React from "react";
 import "./Finish.scss";
+import { Link } from "react-router-dom";
 
 const caculateTime = (time) => {
   let timeArray = [];
@@ -17,8 +18,13 @@ const caculateTime = (time) => {
   return formattedTime;
 };
 
-const Finish = ({ time }) => {
-  let formattedTime = caculateTime(time);
+const Finish = (props) => {
+  const {
+    match: {
+      params: { time: time },
+    },
+  } = props;
+  let formattedTime = caculateTime(Number(time));
   return (
     <div className="finish-container">
       <p className="congrats">Congratulations!</p>
@@ -27,8 +33,12 @@ const Finish = ({ time }) => {
         <input type="text" placeholder="Write your name" />
         <button>Save</button>
       </div>
-      <button className="retryBtn">Retry</button>
-      <button>Home</button>
+      <button className="retryBtn">
+        <Link to="/game">Retry</Link>
+      </button>
+      <button>
+        <Link to="/">Home</Link>
+      </button>
     </div>
   );
 };
