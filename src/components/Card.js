@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import "./Finish";
 import "./Card.scss";
@@ -28,17 +28,7 @@ let flippedCard = [];
 
 const time = new Date().getTime();
 const Card = ({ history }) => {
-  const [lv, setLv] = useState(5);
-  const timerRef = useRef(null);
-
-  useEffect(() => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-    return () => {
-      clearTimeout(timerRef.current);
-    };
-  }, []);
+  const [lv, setLv] = useState(1);
 
   const removeClassName = (arrayName) => {
     if (arrayName === "click") {
@@ -51,11 +41,11 @@ const Card = ({ history }) => {
         tmp = flippedCard.pop().targetNode;
         tmp.classList.add("notransition");
         tmp.classList.remove("flipped");
-        (function (a) {
-          timerRef.current = setTimeout(function () {
-            a.classList.remove("notransition");
-          }, 500);
-        })(tmp);
+        // (function (a) {
+        //   setTimeout(function () {
+        //     a.classList.remove("notransition");
+        //   }, 500);
+        // })(tmp);
       }
     }
   };
@@ -72,19 +62,18 @@ const Card = ({ history }) => {
           flippedCard.push(tmp);
         }
         if (flippedCard.length === LEVEL[lv]) {
-          timerRef.current = setTimeout(() => {
+          setTimeout(() => {
             removeClassName("flip");
             if (lv + 1 === 6) {
               const now_time = Math.floor(
                 (new Date().getTime() - time) * 0.001
               );
               history.push(`/finish/${now_time}`);
-            }
-            setLv(lv + 1);
+            } else setLv(lv + 1);
           }, 500);
         }
       } else {
-        timerRef.current = setTimeout(() => {
+        setTimeout(() => {
           removeClassName("click");
         }, 500);
       }
