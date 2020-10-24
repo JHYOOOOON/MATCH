@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, createRef, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./Finish";
 import "./Card.scss";
@@ -29,6 +29,11 @@ let flippedCard = [];
 const time = new Date().getTime();
 const Card = ({ history }) => {
   const [lv, setLv] = useState(1);
+  const refs = useRef(
+    Array(LEVEL[lv])
+      .fill()
+      .map(() => createRef())
+  );
 
   const removeClassName = (arrayName) => {
     if (arrayName === "click") {
@@ -41,11 +46,11 @@ const Card = ({ history }) => {
         tmp = flippedCard.pop().targetNode;
         tmp.classList.add("notransition");
         tmp.classList.remove("flipped");
-        // (function (a) {
-        //   setTimeout(function () {
-        //     a.classList.remove("notransition");
-        //   }, 500);
-        // })(tmp);
+        (function (a) {
+          setTimeout(function () {
+            a.classList.remove("notransition");
+          }, 300);
+        })(tmp);
       }
     }
   };
@@ -107,13 +112,19 @@ const Card = ({ history }) => {
     return cardArray;
   };
 
+  const showingCard = () => {
+    // console.log(refs.current[0]);
+  };
+
   // 카드 그리기
   const printCard = (card, idx) => {
     const cardKind = CARD_IMAGE[card];
     const cardSrc = require(`../img/${cardKind}.svg`);
+    showingCard();
+
     return (
       <div className={`card ${idx}`} key={idx}>
-        <div className="card-inner">
+        <div ref={refs.current[idx]} className="card-inner">
           <div className="card-front">
             <img src={cardSrc} alt={cardKind} />
           </div>
@@ -124,7 +135,6 @@ const Card = ({ history }) => {
   };
 
   let cardArray = assignCard(LEVEL[lv]);
-
   return (
     <div className="card-section">
       <section className="card-container">

@@ -21,22 +21,42 @@ const caculateTime = (time) => {
 const Finish = (props) => {
   const {
     match: {
-      params: { time: time },
+      params: { time },
     },
   } = props;
+
   let formattedTime = caculateTime(Number(time));
+
+  const handleSubmit = (e) => {
+    const input = e.target.childNodes[0];
+    const button = e.target.childNodes[1];
+    const name = input.value;
+
+    let prevRank = JSON.parse(localStorage.getItem("rank"));
+    if (prevRank === null) prevRank = [];
+    let newRank = {};
+    newRank[name] = formattedTime;
+    prevRank.push(newRank);
+
+    localStorage.setItem("rank", JSON.stringify(prevRank));
+    input.value = "";
+    input.disabled = true;
+    input.placeholder = "Submitted";
+    button.type = "button";
+  };
+
   return (
     <div className="finish-container">
       <p className="congrats">Congratulations!</p>
       <p className="time">{formattedTime}</p>
-      <div className="save-container">
+      <form className="save-container" onSubmit={handleSubmit}>
         <input type="text" placeholder="Write your name" />
-        <button>Save</button>
-      </div>
+        <button type="submit">Save</button>
+      </form>
       <button className="retryBtn">
         <Link to="/game">Retry</Link>
       </button>
-      <button>
+      <button className="homeBtn">
         <Link to="/">Home</Link>
       </button>
     </div>

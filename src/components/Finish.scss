@@ -27,16 +27,25 @@
       font-size: 17px;
     }
     button {
+      padding: 2px 8px;
       background-color: $mint;
     }
   }
   > button {
+    display: flex;
+    justify-content: center;
     margin-top: 15px;
     width: 100%;
-    padding: 8px;
   }
   .retryBtn {
     background-color: $mint;
+  }
+  .retryBtn,
+  .homeBtn {
+    a {
+      padding: 8px;
+      color: black;
+    }
   }
 }
 

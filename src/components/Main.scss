@@ -17,14 +17,18 @@
     text-align: center;
   }
   button {
+    display: flex;
+    justify-content: center;
     margin-top: 15px;
     width: 80%;
-    padding: 8px;
+    padding: 0;
   }
   .play {
     background-color: $mint;
     a {
       color: black;
+      text-align: center;
+      padding: 8px;
     }
   }
 }
