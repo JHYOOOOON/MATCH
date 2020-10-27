@@ -26,14 +26,10 @@ const CARD_KINDS = 6;
 let clickedCard = [];
 let flippedCard = [];
 
-const time = new Date().getTime();
+let time = new Date(new Date()).getTime();
+
 const Card = ({ history }) => {
   const [lv, setLv] = useState(1);
-  const refs = useRef(
-    Array(LEVEL[lv])
-      .fill()
-      .map(() => createRef())
-  );
 
   const removeClassName = (arrayName) => {
     if (arrayName === "click") {
@@ -124,7 +120,7 @@ const Card = ({ history }) => {
 
     return (
       <div className={`card ${idx}`} key={idx}>
-        <div ref={refs.current[idx]} className="card-inner">
+        <div className="card-inner">
           <div className="card-front">
             <img src={cardSrc} alt={cardKind} />
           </div>

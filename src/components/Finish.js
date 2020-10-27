@@ -18,6 +18,17 @@ const caculateTime = (time) => {
   return formattedTime;
 };
 
+const getDate = () => {
+  let nowDate = "";
+  const date = new Date();
+  nowDate += date.getFullYear() + ". ";
+  nowDate += date.getMonth() + 1 + ". ";
+  nowDate += date.getDate();
+
+  console.log(nowDate);
+  return nowDate;
+};
+
 const Finish = (props) => {
   const {
     match: {
@@ -35,7 +46,9 @@ const Finish = (props) => {
     let prevRank = JSON.parse(localStorage.getItem("rank"));
     if (prevRank === null) prevRank = [];
     let newRank = {};
-    newRank[name] = formattedTime;
+    newRank.name = name;
+    newRank.timer = formattedTime;
+    newRank.time = getDate();
     prevRank.push(newRank);
 
     localStorage.setItem("rank", JSON.stringify(prevRank));

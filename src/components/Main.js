@@ -13,7 +13,9 @@ const Main = () => {
       <button className="play">
         <Link to="/game">Play</Link>
       </button>
-      <button>Rank</button>
+      <button>
+        <Link to="/rank">Rank</Link>
+      </button>
     </div>
   );
 };

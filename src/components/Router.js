@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Main from "./Main";
 import Card from "./Card";
 import Finish from "./Finish";
+import Rank from "./Rank";
 
 export default () => (
   <HashRouter>
@@ -14,6 +15,7 @@ export default () => (
         <Switch>
           <Route path="/" exact component={Main} />
           <Route path="/game" component={Card} />
+          <Route path="/rank" component={Rank} />
           <Route path="/finish/:time" component={Finish} />
           <Redirect from="*" to="/" />
         </Switch>

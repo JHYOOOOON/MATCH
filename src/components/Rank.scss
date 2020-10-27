@@ -1,0 +1,44 @@
+@import "./variables.scss";
+
+.rank {
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  > p {
+    font-size: $title_font_size;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .rank-container {
+    width: 100%;
+    .rank-head.rank-item {
+      text-align: center;
+      background-color: $mint;
+      > .rank-time {
+        text-align: center;
+      }
+    }
+    .rank-item {
+      display: grid;
+      grid-template-columns: 50px 1fr 1fr 1fr;
+      padding: 10px;
+      font-size: 17px;
+      > .rank-num {
+        text-align: center;
+      }
+      > .rank-name {
+        text-align: center;
+      }
+      > .rank-record {
+        text-align: center;
+      }
+      > .rank-time {
+        text-align: right;
+      }
+      &:nth-child(even) {
+        background-color: rgba(219, 219, 219, 0.3);
+      }
+    }
+  }
+}
