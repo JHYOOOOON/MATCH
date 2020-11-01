@@ -67,7 +67,16 @@ const Finish = (props) => {
         <button type="submit">Save</button>
       </form>
       <button className="retryBtn">
-        <Link to="/game">Retry</Link>
+        <Link
+          to={{
+            pathname: "/game",
+            state: {
+              start_time: new Date().getTime(),
+            },
+          }}
+        >
+          Retry
+        </Link>
       </button>
       <button className="homeBtn">
         <Link to="/">Home</Link>

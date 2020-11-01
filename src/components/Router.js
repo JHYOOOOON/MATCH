@@ -18,6 +18,7 @@ export default () => (
           <Route path="/rank" component={Rank} />
           <Route path="/finish/:time" component={Finish} />
           <Redirect from="*" to="/" />
+          <Redirect from="/game" to="/" />
         </Switch>
       </section>
       <Footer />

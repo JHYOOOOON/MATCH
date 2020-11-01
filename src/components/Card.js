@@ -26,10 +26,11 @@ const CARD_KINDS = 6;
 let clickedCard = [];
 let flippedCard = [];
 
-let time = new Date(new Date()).getTime();
-
-const Card = ({ history }) => {
+const Card = (props) => {
   const [lv, setLv] = useState(1);
+  let history = props.history;
+  const start_time = history.location.state.start_time;
+  console.log(history);
 
   const removeClassName = (arrayName) => {
     if (arrayName === "click") {
@@ -50,6 +51,8 @@ const Card = ({ history }) => {
       }
     }
   };
+
+  //카드 선택시
   const handleClickCard = (event) => {
     const targetNode = event.target.parentNode;
     const targetKind = event.target.parentNode.childNodes[0].childNodes[0].alt;
@@ -67,7 +70,7 @@ const Card = ({ history }) => {
             removeClassName("flip");
             if (lv + 1 === 6) {
               const now_time = Math.floor(
-                (new Date().getTime() - time) * 0.001
+                (new Date().getTime() - start_time) * 0.001
               );
               history.push(`/finish/${now_time}`);
             } else setLv(lv + 1);
