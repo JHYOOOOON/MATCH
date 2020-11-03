@@ -22,10 +22,12 @@ const getDate = () => {
   let nowDate = "";
   const date = new Date();
   nowDate += date.getFullYear() + ". ";
-  nowDate += date.getMonth() + 1 + ". ";
-  nowDate += date.getDate();
+  nowDate +=
+    date.getMonth() + 1 < 10
+      ? `0${date.getMonth() + 1}`
+      : date.getMonth() + 1 + ". ";
+  nowDate += date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
 
-  console.log(nowDate);
   return nowDate;
 };
 
@@ -51,7 +53,18 @@ const Finish = (props) => {
     newRank.time = getDate();
     prevRank.push(newRank);
 
-    localStorage.setItem("rank", JSON.stringify(prevRank));
+    console.log(prevRank);
+    const sortedRank = prevRank.sort((a, b) => {
+      if (a.timer < b.timer) return -1;
+      else if (a.timer < b.timer) return 1;
+      else {
+        if (a.time < b.time) return 1;
+        else if (a.time > b.time) return -1;
+        else return 0;
+      }
+    });
+
+    localStorage.setItem("rank", JSON.stringify(sortedRank));
     input.value = "";
     input.disabled = true;
     input.placeholder = "Submitted";

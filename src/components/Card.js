@@ -30,7 +30,6 @@ const Card = (props) => {
   const [lv, setLv] = useState(1);
   let history = props.history;
   const start_time = history.location.state.start_time;
-  console.log(history);
 
   const removeClassName = (arrayName) => {
     if (arrayName === "click") {
