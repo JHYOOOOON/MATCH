@@ -41,6 +41,7 @@ const Finish = (props) => {
   let formattedTime = caculateTime(Number(time));
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     const input = e.target.childNodes[0];
     const button = e.target.childNodes[1];
     const name = input.value;
@@ -56,11 +57,10 @@ const Finish = (props) => {
     console.log(prevRank);
     const sortedRank = prevRank.sort((a, b) => {
       if (a.timer < b.timer) return -1;
-      else if (a.timer < b.timer) return 1;
+      else if (a.timer > b.timer) return 1;
       else {
         if (a.time < b.time) return 1;
-        else if (a.time > b.time) return -1;
-        else return 0;
+        else if (a.time >= b.time) return -1;
       }
     });
 
