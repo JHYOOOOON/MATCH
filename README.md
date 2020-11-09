@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MATCH!
 
-## Available Scripts
+### <strong>🎲 프로젝트 설명</strong>
 
-In the project directory, you can run:
+&nbsp;<i>MATCH!</i>는 카드 짝맞추기 게임입니다.<br/>
+&nbsp;제 기억력을 위해 컴퓨터 할 때 짬짬히 하려고 만들어서 width 500px에 최적화 되어 있습니다.<br/>
+&nbsp;React로 개발했고, localStorage에 기록을 저장해 랭크시스템 구축했습니다.
+<br/><br/>
+&nbsp;< 참고 프로젝트(안드로이드 앱) ><br/>
+👉 Eunjee Shin - [MatchingCardGame](https://github.com/devejs/MatchingCardGame)
+<br/><br/>
 
-### `yarn start`
+### <strong>🎲 기능 및 페이지</strong>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 기능<br/>
+  &nbsp;- 레벨 5까지 구현, 1레벨당 카드 4개씩 증가<br/>
+  &nbsp;- 게임 시작부터 끝까지 걸린 시간 기록<br/>
+  &nbsp;- 결과페이지에서 이름 제출 시 localStorage에 저장<br/>
+  &nbsp;- Rank페이지에서 순위 확인 가능<br/>
+  &nbsp;- 기록이 짧을수록, 게임 일자가 늦을수록 높은 순위에 랭크<br/>
+  &nbsp;- 랭크페이지에서 새로고침 버튼 클릭시 랭크 초기화
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 페이지<br/>
+  &nbsp;- 메인페이지<br/>
+  &nbsp;- 랭킹페이지<br/>
+  &nbsp;- 게임페이지<br/>
+  &nbsp;- 결과페이지<br/><br/>
 
-### `yarn test`
+### <strong>🎲 스크린샷</strong>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 메인페이지<br/>
+  <img width="300px" src="https://user-images.githubusercontent.com/50460114/98515899-24fb4400-22af-11eb-9756-4d1f7a6707fd.png"/>
 
-### `yarn build`
+- 랭킹페이지<br/>
+  <img width="300px" src="https://user-images.githubusercontent.com/50460114/98516957-95ef2b80-22b0-11eb-914d-e0af105040fb.PNG"/>
+  <img width="300px" src="https://user-images.githubusercontent.com/50460114/98517015-a56e7480-22b0-11eb-80ae-30f986b5291e.png"/>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 게임페이지<br/>
+  <img width="300px" src="https://user-images.githubusercontent.com/50460114/98517312-0eee8300-22b1-11eb-958a-6360b3732c1f.png"/>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- 결과페이지<br/>
+  <img width="300px" src="https://user-images.githubusercontent.com/50460114/98517317-1150dd00-22b1-11eb-954d-e161c9dc0244.png">
+  <br/><br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### <strong>🎲 투두리스트 & 버그</strong>
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [ ] 레벨 처음 시작 때 카드 보여주고 시작하기
+- [ ] 게임 도중 새로고침 시 오류 → 메인페이지로 redirect하도록 하기
